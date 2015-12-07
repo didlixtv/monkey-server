@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>didlix.tv – Twitch Streamer, Internet Personality, Voice Actress</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="google-site-verification" content="lt_sfieEklgfDoJdre_mGlTsvd3sRcGzQybzPPoAWes" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css"> -->
+  <link rel="stylesheet" href="http://didlix.tv/css/credits.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- JavaScript
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
+  <script type='text/javascript' src="http://didlix.tv/js/jquery.titlesequence.js"></script>
+
+</head>
+<body>
+
+
+<div id="titles"></div>
+
+<div style="display: none;">
+
+<div id="credits-source">
+  <h1>Cast</h1>
+  <dl>
+    <dt>didlix</dt>
+      <dd>Rachel Graves</dd>
+    <dt>Monkey</dt>
+      <dd>Rachel Graves</dd>
+    <dt>Mr Banana</dt>
+      <dd>Rachel Graves</dd>
+    <dt>Evil Mr Bottle</dt>
+      <dd>Rachel Graves</dd>
+  </dl>
+  <h1>Crew</h1>
+  <dl>
+    <dt>Pixel Artist</dt>
+      <dd>James Dearden – Technocrat Games</dd>
+    <dt>Title Sequence</dt>
+      <dd>Rachel Graves</dd>
+      <dd>Grant McLean – jquery.titlesequence.js</dd>
+    <dt>OBS Cards</dt>
+      <dd>Rachel Graves</dd>
+    <dt>Moderators</dt>
+      <dd>KarlThePagan</dd>
+      <dd>dom</dd>
+      <dd>DiscoMcDisco</dd>
+    <dt>Twitchalerts API Integration</dt>
+      <dd>Rachel Graves</dd>
+      <dd>Nick Grimshaw</dd>
+  </dl>
+  <h1>Affiliates</h1>
+  <dl>
+    <dd>Green Man Gaming</dd>
+    <dd>HCS Voice Packs</dd>
+  </dl>
+  <h1>Special thanks to our donors who make this stream possible!</h1>
+  <dl>
+    <dd>Attendis</dd>
+    <dd>Hugh Mann</dd>
+    <dd>Etc</dd>
+  </dl>
+
+  <div class="fineprint">All trademarks are the property of the
+    trademark owners.</div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+
+    // Run at half speed if called from PhantomJS (see ph-render.js for why)
+    var options = { time_factor: 1 };
+    if( ((navigator ||{}).userAgent || '').match(/PhantomJS/) ) {
+        options.time_factor = 2;
+    }
+
+    $('#titles').titleSequence([
+
+        {
+            pause: 800
+        },
+
+        {
+            content: 'The End',
+            id: 'the-end',
+            css: {left: '0px', top: '160px', opacity: 0 },
+            animate: { opacity: 1 },
+            duration: 1200,
+            pause: 800
+        },
+
+        {
+            selector: '#the-end',
+            animate: { opacity: 0 },
+            duration: 1200,
+        },
+
+        {
+            delete: '#the-end',
+        },
+
+        {
+            content: $('#credits-source').html(),
+            id: 'credits',
+            css: { top: '350px', height: '1000px' },
+            animate: { top: '-1150px' },
+            duration: 20000,
+            easing: 'linear'
+        },
+
+        function() {
+            if(console && console.log) {
+                console.log('done');
+            }
+        }
+
+    ], options);
+  </script>
+
+
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
+
